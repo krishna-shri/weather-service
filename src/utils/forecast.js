@@ -19,12 +19,18 @@ const forecast = (latitude, longitude, callback) => {
       //     temp: res.body.current.temp,
       //     rain: res.body.current.clouds,
       //   });
+      // console.log(body.daily[0].temp.min);
       callback(
         undefined,
         body.current.weather[0].description +
           '. It is currently ' +
           body.current.temp +
-          'F out. There is a ' +
+          'F out. The high today is ' +
+          body.daily[0].temp.max +
+          ' with a low of ' +
+          body.daily[0].temp.min +
+          '. ' +
+          'There is a ' +
           body.current.clouds +
           '% chance of rain'
       );
